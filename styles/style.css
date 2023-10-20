@@ -12,11 +12,13 @@ html {
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
   color: #fff;
-  font-family: "Fira Sans Condensed", sans-serif;
+  font-family: "Fira Sans Condensed", "Oswald", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
-  min-width: 800px;
 }
 
 h1,
@@ -44,7 +46,6 @@ ol {
   justify-content: center;
   align-items: end;
   max-width: 1140px;
-  min-height: 800px;
   gap: 30px;
 }
 
@@ -76,14 +77,14 @@ ol {
 }
 
 .result__video-container {
-  min-width: 711px;
-  min-height: 386px;
+  width: 711px;
+  height: 386px;
   position: relative;
 }
 
 .result__video {
-  width: 100%;
-  height: 100%;
+	block-size: 100%;
+  object-fit: cover;
 }
 
 .content__list-item:not(:last-child) {
@@ -96,8 +97,9 @@ ol {
 }
 
 .content__video-card-thumbnail {
-  max-width: 194px;
-  max-height: 103px;
+  width: 194px;
+  height: 103px;
+	object-fit: fill;
 }
 
 .content__video-card-description-container {
@@ -106,7 +108,7 @@ ol {
 
 .search-form__fieldset-title {
   color: #fff;
-  font-family: "Fira Sans Condensed";
+  font-family: inherit;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -122,7 +124,7 @@ ol {
 
 .search-form__label-text {
   color: #fff;
-  font-family: "Fira Sans Condensed";
+  font-family: inherit;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -130,7 +132,7 @@ ol {
 
 .title {
   color: #fff;
-  font-family: "Oswald";
+  font-family: "Oswald", "Fira Sans Condensed", sans-serif;
   font-size: 75px;
   font-style: normal;
   font-weight: 700;
@@ -146,11 +148,32 @@ ol {
   text-decoration: none;
   color: #fff;
   margin: 2px;
+	padding: 2px;
+  display: block;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
 }
 
 .content__video-card-title {
   color: #fff;
-  font-family: "Oswald";
+  font-family: "Oswald", "Fira Sans Condensed", sans-serif;
   font-size: 30px;
   font-weight: 700;
   text-transform: uppercase;
@@ -159,7 +182,7 @@ ol {
 
 .content__video-card-description {
   color: #fff;
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", "Oswald", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -176,13 +199,9 @@ ol {
   white-space: nowrap;
 }
 
-fieldset {
+.search-form__fieldset {
   border: 0;
-}
-
-.search-form__label {
-  width: fit-content;
-}
+}	
 
 .search-form__checkbox {
   cursor: pointer;
@@ -191,7 +210,7 @@ fieldset {
 .search-form__textfield {
   cursor: text;
   color: rgba(255, 255, 255, 0.7);
-  font-family: Fira Sans Condensed;
+  font-family: "Fira Sans Condensed", "Oswald", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -219,25 +238,20 @@ fieldset {
   cursor: pointer;
 }
 
-.search-form__checkbox[type="checkbox"]:checked
-  + .search-form__pseudo-checkbox {
-  min-width: 17px;
-  min-height: 17px;
-  background-color: #fff;
-  outline: 1px solid #fff;
-  outline-offset: 1px;
-  margin-right: 2px; /*сделано, чтобы размер в состоянии чекед соответсвовал макету и элементы не плыли */
-}
-
-.search-form__label[type="checkbox"]:focus-visible
-  + .search-form__pseudo-checkbox {
-  background-color: #fff;
+.search-form__checkbox[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
+  content: ' ';
+	display: block;
+	width: 15px;
+	height: 15px;
+	margin: 1px;
+	background-color: #fff;
 }
 
 .search-form__label {
   display: flex;
   align-items: center;
   gap: 5px;
+	width: fit-content;
 }
 
 .button {
@@ -246,7 +260,7 @@ fieldset {
   background-color: transparent;
   color: #fff;
   text-align: center;
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", "Oswald", sans-serif;
   font-size: 18px;
   font-weight: 700;
   border: 1px solid #fff;
@@ -261,9 +275,8 @@ fieldset {
 }
 
 .more-button {
-  min-width: 399px;
+   min-width: 100%; /*использую относительные единицы, но тогда в состоянии focus-visible обводка видна только сверху */
   min-height: 34px;
-  margin: 2px; /*сделал, чтобы обводка в состоянии focus-visible была видна */
 }
 
 .search-form__textfield:focus {
@@ -288,8 +301,11 @@ fieldset {
 }
 
 .button:hover {
-  background-color: #545050;
   text-decoration: underline;
+}
+
+.button:active {
+	background-color: #545050;
 }
 
 .button:focus-visible {
@@ -297,26 +313,3 @@ fieldset {
   outline-offset: 1px;
 }
 
-.content__card-link {
-  padding: 2px;
-  display: block;
-}
-
-.content__card-link_current {
-  background-color: #545050;
-}
-
-.content__list-item:hover {
-  text-decoration: underline;
-}
-.content__list-item:active {
-  background-color: #545050;
-}
-
-.content__list-item:focus {
-  outline: none;
-}
-
-.content__list-item:focus-visible {
-  outline: 1px solid #fff;
-}
