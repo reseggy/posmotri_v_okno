@@ -12,9 +12,9 @@ html {
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #fff;
   font-family: "Fira Sans Condensed", "Oswald", sans-serif;
   font-size: 18px;
@@ -41,7 +41,7 @@ ol {
 }
 
 .content {
-	margin: 0 auto;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: end;
@@ -83,7 +83,7 @@ ol {
 }
 
 .result__video {
-	block-size: 100%;
+  block-size: 100%;
   object-fit: cover;
 }
 
@@ -99,7 +99,7 @@ ol {
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
-	object-fit: fill;
+  object-fit: fill;
 }
 
 .content__video-card-description-container {
@@ -148,7 +148,7 @@ ol {
   text-decoration: none;
   color: #fff;
   margin: 2px;
-	padding: 2px;
+  padding: 2px;
   display: block;
 }
 
@@ -201,7 +201,7 @@ ol {
 
 .search-form__fieldset {
   border: 0;
-}	
+}
 
 .search-form__checkbox {
   cursor: pointer;
@@ -238,20 +238,21 @@ ol {
   cursor: pointer;
 }
 
-.search-form__checkbox[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
-  content: ' ';
-	display: block;
-	width: 15px;
-	height: 15px;
-	margin: 1px;
-	background-color: #fff;
+.search-form__checkbox[type="checkbox"]:checked
+  + .search-form__pseudo-checkbox::after {
+  content: " ";
+  display: block;
+  width: 15px;
+  height: 15px;
+  margin: 1px;
+  background-color: #fff;
 }
 
 .search-form__label {
   display: flex;
   align-items: center;
   gap: 5px;
-	width: fit-content;
+  width: fit-content;
 }
 
 .button {
@@ -275,8 +276,9 @@ ol {
 }
 
 .more-button {
-   min-width: 100%; /*использую относительные единицы, но тогда в состоянии focus-visible обводка видна только сверху */
+  min-width: 399px;
   min-height: 34px;
+	margin: 2px;
 }
 
 .search-form__textfield:focus {
@@ -305,11 +307,10 @@ ol {
 }
 
 .button:active {
-	background-color: #545050;
+  background-color: #545050;
 }
 
 .button:focus-visible {
   outline: 1px solid #fff;
   outline-offset: 1px;
 }
-
